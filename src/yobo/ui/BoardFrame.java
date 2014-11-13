@@ -13,6 +13,7 @@ import yobo.engine.Piece;
 
 import javax.swing.*;
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -63,7 +64,8 @@ import java.io.*;
 
         private void jbInit() throws Exception
         {
-            File[] file = new File[12];
+            // File[] file = new File[12];
+            InputStream file;
 
             addMouseListener(new java.awt.event.MouseAdapter()
                  {
@@ -129,8 +131,10 @@ import java.io.*;
                     // Read from a file
                     for (int i =0 ; i < 12; i++)
                     {
-                          file[i] = new File( i + ".gif");
-                          image[i] = ImageIO.read(file[i]);
+                          System.out.println(new File(".").getAbsolutePath());
+                          file = ClassLoader.getSystemResourceAsStream(i + ".gif");
+                          // file[i] = new File(i + ".gif");
+                          image[i] = ImageIO.read(ImageIO.createImageInputStream(file));
                     }
                 } catch(IOException e) {
                     System.out.println(e.toString());

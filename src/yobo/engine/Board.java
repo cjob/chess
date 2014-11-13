@@ -256,7 +256,7 @@ public final class Board implements Runnable {
         elapsedTime = System.currentTimeMillis();
         System.out.println("Thinking ...");
         // do not evaluate more than 10000000 nodes
-        maxNodeCount = 3000000;
+        maxNodeCount = 15000000;
         currentPositionScore=Evaluate(0,Integer.MIN_VALUE,Integer.MAX_VALUE,maxNodeCount);
         System.out.println("Move From "+ BestMoveStart[0] +" to " + BestMoveEnd[0]);
         move(BestMoveStart[0], BestMoveEnd[0]);

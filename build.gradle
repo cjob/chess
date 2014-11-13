@@ -1,5 +1,13 @@
-task hello {
-    doLast {
-        println 'Hello world!'
+
+apply plugin: 'java'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/yobo/'
+        }
+        resources {
+            srcDir 'resources'
+        }
     }
 }
